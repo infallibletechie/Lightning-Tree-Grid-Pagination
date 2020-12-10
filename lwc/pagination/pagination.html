@@ -1,0 +1,45 @@
+<template>
+
+    <div class="slds-box slds-theme--default">
+
+        <div class="slds-m-bottom_small">
+
+            <lightning-button label="Collapse All" onclick={collapseAll} class="slds-m-around_small">
+            </lightning-button>
+            <lightning-button label="Expand All" onclick={expandAll} class="slds-m-around_small">
+            </lightning-button>
+            
+        </div>
+        
+        <lightning-tree-grid 
+                            columns={gridColumns}
+                            data={gridData}
+                            key-field="Id"
+                            hide-checkbox-column=true
+                            onrowaction={handleRowAction}>
+        </lightning-tree-grid>
+
+        <div class="slds-m-top_small">
+
+            <template if:true={frstBool}>
+                <lightning-button label="First" variant="brand-outline" onclick={goFirst} class="slds-m-around_small">                
+                </lightning-button>
+            </template>
+            <template if:true={prevBool}>
+                <lightning-button label="Previous" variant="brand-outline" onclick={goPrevious} class="slds-m-around_small">                
+                </lightning-button>
+            </template>
+            <template if:true={nextBool}>
+                <lightning-button label="Next" variant="brand-outline" onclick={goNext} class="slds-m-around_small">                
+                </lightning-button>
+            </template>
+            <template if:true={lastBool}>
+                <lightning-button label="Last" variant="brand-outline" onclick={goLast} class="slds-m-around_small">                
+                </lightning-button>
+            </template>
+            
+        </div>
+
+    </div>
+
+</template>
